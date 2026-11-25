@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ DJAYDEN | Official Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #101010;
+      color: white;
+    }
+
+    header {
+      padding: 25px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #080808;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: #ff6900;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+    }
+
+    nav a:hover { color: #ff6900; }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #191919, #351400);
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 10vw, 100px);
+      color: #ff6900;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin: 20px 0 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #ff6900;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 85px 10%;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 36px;
+      margin-bottom: 25px;
+      color: #ff6900;
+    }
+
+    section p {
+      color: #ccc;
+      line-height: 1.8;
+    }
+
+    .styles {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .styles span {
+      padding: 18px 25px;
+      background: #222;
+      border: 1px solid #ff6900;
+      border-radius: 8px;
+    }
+
+    form {
+      max-width: 550px;
+      margin: 30px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea, select {
+      padding: 15px;
+      background: #222;
+      border: 1px solid #444;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    textarea { min-height: 120px; }
+
+    button {
+      padding: 15px;
+      background: #ff6900;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #080808;
+      padding: 30px;
+      text-align: center;
+      color: #888;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+      nav a { margin: 0 7px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">DJ DJAYDEN</div>
+  <nav>
+    <a href="#over">Over mij</a>
+    <a href="#muziek">Muziek</a>
+    <a href="#boeken">Boeken</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>DJ DJAYDEN</h1>
+  <p>Feel the music. Experience the energy.</p>
+  <a href="#boeken" class="button">BOEK MIJ NU</a>
+</div>
+
+<section id="over">
+  <h2>Over mij</h2>
+  <p>
+    Welkom op mijn officiële DJ-website!
+    Ik ben DJ DJAYDEN en muziek is mijn passie.
+    Met energieke sets en de beste beats zorg ik
+    voor een onvergetelijke sfeer op ieder evenement.
+  </p>
+</section>
+
+<section id="muziek">
+  <h2>Mijn muziekstijlen</h2>
+  <p>Dit zijn de muziekstijlen die je tijdens mijn sets kunt verwachten.</p>
+  <div class="styles">
+    <span>🎧 House</span>
+    <span>🔥 Tech House</span>
+    <span>🎶 Techno</span>
+    <span>🎉 Club Music</span>
+  </div>
+</section>
+
+<section id="boeken">
+  <h2>DJ boeken</h2>
+  <p>Wil je mij boeken voor jouw feest of evenement?
+     Vul hieronder je gegevens in!</p>
+
+  <form onsubmit="boekDJ(event)">
+    <input id="naam" placeholder="Jouw naam" required>
+    <input id="email" type="email" placeholder="Jouw e-mailadres" required>
+    <input id="datum" type="date" required>
+    <input id="locatie" placeholder="Locatie van het evenement" required>
+    <select id="soort" required>
+      <option value="">Soort evenement</option>
+      <option>Festival</option>
+      <option>Club</option>
+      <option>Privéfeest</option>
+      <option>Anders</option>
+    </select>
+    <textarea id="bericht" placeholder="Vertel meer over je evenement"></textarea>
+    <button type="submit">Verstuur boekingsaanvraag</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 DJ DJAYDEN | All Rights Reserved
+</footer>
+
+<script>
+function boekDJ(event) {
+  event.preventDefault();
+
+  const emailDJ = "JOUWEMAIL@GMAIL.COM";
+  const onderwerp = encodeURIComponent("DJ Boekingsaanvraag");
+  const tekst = encodeURIComponent(
+    "Naam: " + document.getElementById("naam").value +
+    "\nE-mail: " + document.getElementById("email").value +
+    "\nDatum: " + document.getElementById("datum").value +
+    "\nLocatie: " + document.getElementById("locatie").value +
+    "\nEvenement: " + document.getElementById("soort").value +
+    "\nBericht: " + document.getElementById("bericht").value
+  );
+
+  window.location.href =
+    "mailto:" + emailDJ + "?subject=" + onderwerp + "&body=" + tekst;
+}
+</script>
+
+</body>
+</html>
